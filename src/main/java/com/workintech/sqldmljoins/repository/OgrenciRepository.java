@@ -38,12 +38,12 @@ public interface OgrenciRepository extends JpaRepository<Ogrenci, Long> {
 
     //--İsme göre öğrenci sayılarının adedini bulunuz.
     //--Ali: 2, Mehmet: 3
-    String QUESTION_7 = "select ad, count(*) as ogr_sayisi from ogrenci group by ad;";
+    String QUESTION_7 = "select o.ad, count(o.ad)  from ogrenci o group by o.ad;";
     @Query(value = QUESTION_7, nativeQuery = true)
     List<StudentNameCount> findStudentNameCount();
 
 
-    String QUESTION_8 = "select sinif, count(*) as ogr_sayisi from ogrenci group by sinif; ";
+    String QUESTION_8 = "select o.sinif,count(*)  from ogrenci o group by o.sinif; ";
     @Query(value = QUESTION_8, nativeQuery = true)
     List<StudentClassCount> findStudentClassCount();
 
